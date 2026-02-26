@@ -13,7 +13,7 @@ jobs:
         run: echo "CUSTOM_VAR is '$CUSTOM_VAR'"
       
       - name: Test HTTPS_PROXY (will work)
-        run: echo "HTTPS_PROXY is '$HTTPS_PROXY'"
+        run: echo "HTTPS_PROXY is a '$HTTPS_PROXY'"
       
       - name: Test NO_PROXY (will work)
         run: echo "NO_PROXY is '$NO_PROXY'"
