@@ -1,0 +1,22 @@
+name: Test Environment Variables
+
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: codebuild-runner-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Test BUCKET_NAME (will be empty)
+        run: echo "BUCKET_NAME is '$BUCKET_NAME'"
+      
+      - name: Test CUSTOM_VAR (will be empty)
+        run: echo "CUSTOM_VAR is '$CUSTOM_VAR'"
+      
+      - name: Test HTTPS_PROXY (will work)
+        run: echo "HTTPS_PROXY is '$HTTPS_PROXY'"
+      
+      - name: Test NO_PROXY (will work)
+        run: echo "NO_PROXY is '$NO_PROXY'"
+      
+      - name: Show all environment variables
+        run: env | sort
