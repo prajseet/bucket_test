@@ -7,7 +7,7 @@ jobs:
     runs-on: codebuild-test-bucket-cfn-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Test BUCKET_NAME (dynamic ref)
-        run: echo "BUCKET_NAME is '$BUCKET_NAME'"
+        run: echo "BUCKET_NAME iss '$BUCKET_NAME'"
       
       - name: Test BUCKET_ARN (dynamic ref)
         run: echo "BUCKET_ARN is '$BUCKET_ARN'"
