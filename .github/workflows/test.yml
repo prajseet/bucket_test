@@ -4,19 +4,13 @@ on: [push, workflow_dispatch]
 
 jobs:
   test:
-    runs-on: codebuild-test-bucket-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-test-bucket-cfn-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - name: Test BUCKET_NAME (will be empty)
+      - name: Test BUCKET_NAME (dynamic ref)
         run: echo "BUCKET_NAME is '$BUCKET_NAME'"
       
-      - name: Test CUSTOM_VAR (will be empty)
-        run: echo "CUSTOM_VAR is '$CUSTOM_VAR'"
+      - name: Test BUCKET_ARN (dynamic ref)
+        run: echo "BUCKET_ARN is '$BUCKET_ARN'"
       
-      - name: Test HTTPS_PROXY (will work)
-        run: echo "HTTPS_PROXY is '$HTTPS_PROXY'"
-      
-      - name: Test NO_PROXY (will work)
-        run: echo "NO_PROXY is '$NO_PROXY'"
-      
-      - name: Show all environment variables
-        run: env | sort
+      - name: Test STATIC_VAR (static value)
+        run: echo "STATIC_VAR is '$STATIC_VAR'"
