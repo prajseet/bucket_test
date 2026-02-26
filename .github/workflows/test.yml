@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   test:
-    runs-on: codebuild-runner-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-test-bucket-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Test BUCKET_NAME (will be empty)
         run: echo "BUCKET_NAME is '$BUCKET_NAME'"
